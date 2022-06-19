@@ -16,8 +16,12 @@ class App extends Component {
 
   sumbit = () => {
     const changeBtn = document.getElementById('submitBtn');
+    const eduBtn = document.getElementById('eduBtn');
+    const practBtn = document.getElementById('practBtn');
     this.setState((prevState) => ({ submitted: !prevState.submitted }));
     changeBtn.textContent = changeBtn.textContent === 'Submit' ? 'Edit' : 'Submit';
+    eduBtn.classList.toggle('hide');
+    practBtn.classList.toggle('hide');
   };
 
   addEducation = () => {
@@ -36,11 +40,14 @@ class App extends Component {
           <General submitted={submitted} />
           <div>
             Educational Experience
-            {eduExp.map((num) => <EduExperience submitted={submitted} number={num} />)}
+            {eduExp.map(() => <EduExperience submitted={submitted} />)}
             <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
           </div>
-          {practExp.map(() => <PractExperience submitted={submitted} />)}
-          <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
+          <div>
+            Practical Experience
+            {practExp.map(() => <PractExperience submitted={submitted} />)}
+            <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
+          </div>
         </div>
         <button type="button" onClick={this.sumbit} id="submitBtn">Submit</button>
       </div>

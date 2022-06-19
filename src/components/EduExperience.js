@@ -31,7 +31,7 @@ class EduExperience extends Component {
     const {
       school, title, date, removed,
     } = this.state;
-    const { submitted, num } = this.props;
+    const { submitted } = this.props;
 
     if (removed) {
       return (
@@ -62,7 +62,7 @@ class EduExperience extends Component {
     }
 
     return (
-      <div className={num}>
+      <div>
         <div>
           <label htmlFor="school">
             School:
@@ -81,7 +81,7 @@ class EduExperience extends Component {
             <input type="date" className="date" value={date} onChange={this.handleChange} />
           </label>
         </div>
-        <button type="button" onClick={this.delete} className={num}>X</button>
+        <button type="button" onClick={this.delete}>X</button>
       </div>
     );
   }
@@ -89,12 +89,10 @@ class EduExperience extends Component {
 
 EduExperience.propTypes = {
   submitted: PropTypes.bool,
-  num: PropTypes.number,
 };
 
 EduExperience.defaultProps = {
   submitted: false,
-  num: 0,
 };
 
 export default EduExperience;
