@@ -82,4 +82,5 @@ General.propTypes = {
 General.defaultProps = {
   submitted: false,
 };
+
 export default General;

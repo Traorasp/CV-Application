@@ -9,8 +9,8 @@ class App extends Component {
 
     this.state = {
       submitted: false,
-      eduExperience: 1,
-      practExperience: 1,
+      eduExp: [],
+      practExp: [],
     };
   }
 
@@ -21,22 +21,22 @@ class App extends Component {
   };
 
   addEducation = () => {
-    this.setState((prevState) => ({ eduExperience: prevState.eduExperience + 1 }));
+    this.setState((prevState) => ({ eduExp: [...prevState.eduExp, prevState.eduExp.length] }));
   };
 
   addPractical = () => {
-    this.setState((prevState) => ({ practExperience: prevState.practExperience + 1 }));
+    this.setState((prev) => ({ practExp: [...prev.practExp, prev.practExp.length] }));
   };
 
   render() {
-    const { submitted, eduExperience, practExperience } = this.state;
+    const { submitted, eduExp, practExp } = this.state;
     return (
       <div className="App">
         <div>
           <General submitted={submitted} />
-          <EduExperience submitted={submitted} amount={eduExperience} />
+          {eduExp.map(() => <EduExperience submitted={submitted} />)}
           <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
-          <PractExperience submitted={submitted} amount={practExperience} />
+          {practExp.map(() => <PractExperience submitted={submitted} />)}
           <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
         </div>
         <button type="button" onClick={this.sumbit} id="submitBtn">Submit</button>
