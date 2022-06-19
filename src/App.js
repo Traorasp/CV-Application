@@ -17,8 +17,7 @@ class App extends Component {
   sumbit = () => {
     const changeBtn = document.getElementById('submitBtn');
     this.setState((prevState) => ({ submitted: !prevState.submitted }));
-    const { submitted } = this.state;
-    changeBtn.textContent = submitted ? 'Edit' : 'Submit';
+    changeBtn.textContent = changeBtn.textContent === 'Submit' ? 'Edit' : 'Submit';
   };
 
   addEducation = () => {
@@ -30,14 +29,14 @@ class App extends Component {
   };
 
   render() {
-    const { submitted } = this.state;
+    const { submitted, eduExperience, practExperience } = this.state;
     return (
       <div className="App">
         <div>
           <General submitted={submitted} />
-          <EduExperience />
+          <EduExperience submitted={submitted} amount={eduExperience} />
           <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
-          <PractExperience />
+          <PractExperience submitted={submitted} amount={practExperience} />
           <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
         </div>
         <button type="button" onClick={this.sumbit} id="submitBtn">Submit</button>
