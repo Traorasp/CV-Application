@@ -1,7 +1,60 @@
 body {
+  padding: none;
+  background: none;
+  margin: none;
+  display: flex;
+  justify-content: center;
+  font-size: 2.25rem;
+}
 
+.App {
+   background-color: rgb(189, 189, 189);
+   width: 60vw;
+   padding: 1vh 1vw;
+   display: flex;
+   flex-direction: column;
+}
+
+button {
+    width: 6vw;
+    height: 5vh;
+    font-size: 2rem;
+    display: block;
+    margin: 2.5%;
+}
+
+.App div{
+    background-color: rgb(225, 217, 217);
+    margin: 1% 0.5%;
 }
 
 .hide {
 display: none;
+}
+
+label {
+    display: flex;
+    justify-content: space-between;
+}
+
+input, textarea {
+    width: 75%;
+    font-size: 2rem;
+}
+
+.mainTaskDiv {
+    word-wrap: break-word;
+}
+
+textarea {
+    resize: none;
+    font-size: 1rem;
+}
+
+input:focus {
+    background-color: lightblue;
+}
+
+.sect {
+    border: black 2px solid;
 }

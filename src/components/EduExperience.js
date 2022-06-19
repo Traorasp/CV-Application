@@ -41,7 +41,7 @@ class EduExperience extends Component {
 
     if (submitted) {
       return (
-        <div>
+        <div className="sect">
           <div>
             School:
             {' '}

@@ -36,18 +36,16 @@ class App extends Component {
     const { submitted, eduExp, practExp } = this.state;
     return (
       <div className="App">
-        <div>
-          <General submitted={submitted} />
-          <div>
-            Educational Experience
-            {eduExp.map(() => <EduExperience submitted={submitted} />)}
-            <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
-          </div>
-          <div>
-            Practical Experience
-            {practExp.map(() => <PractExperience submitted={submitted} />)}
-            <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
-          </div>
+        <General submitted={submitted} />
+        <div id="education">
+          Educational Experience
+          {eduExp.map(() => <EduExperience submitted={submitted} />)}
+          <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
+        </div>
+        <div id="practical">
+          Practical Experience
+          {practExp.map(() => <PractExperience submitted={submitted} />)}
+          <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
         </div>
         <button type="button" onClick={this.sumbit} id="submitBtn">Submit</button>
       </div>

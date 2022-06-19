@@ -47,7 +47,7 @@ class PractExperience extends Component {
 
     if (submitted) {
       return (
-        <div>
+        <div className="sect">
           <div>
             Company:
             {' '}
@@ -58,7 +58,7 @@ class PractExperience extends Component {
             {' '}
             {position}
           </div>
-          <div>
+          <div className="mainTaskDiv">
             Main Tasks:
             {' '}
             {mainTasks}
