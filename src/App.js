@@ -34,8 +34,11 @@ class App extends Component {
       <div className="App">
         <div>
           <General submitted={submitted} />
-          {eduExp.map(() => <EduExperience submitted={submitted} />)}
-          <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
+          <div>
+            Educational Experience
+            {eduExp.map((num) => <EduExperience submitted={submitted} number={num} />)}
+            <button type="button" onClick={this.addEducation} id="eduBtn">Add</button>
+          </div>
           {practExp.map(() => <PractExperience submitted={submitted} />)}
           <button type="button" onClick={this.addPractical} id="practBtn"> Add</button>
         </div>

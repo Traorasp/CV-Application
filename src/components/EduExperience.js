@@ -9,6 +9,7 @@ class EduExperience extends Component {
       school: '',
       title: '',
       date: '',
+      removed: false,
     };
   }
 
@@ -22,9 +23,21 @@ class EduExperience extends Component {
     }
   };
 
+  delete = () => {
+    this.setState({ removed: true });
+  };
+
   render() {
-    const { school, title, date } = this.state;
-    const { submitted } = this.props;
+    const {
+      school, title, date, removed,
+    } = this.state;
+    const { submitted, num } = this.props;
+
+    if (removed) {
+      return (
+        <div />
+      );
+    }
 
     if (submitted) {
       return (
@@ -49,7 +62,7 @@ class EduExperience extends Component {
     }
 
     return (
-      <div>
+      <div className={num}>
         <div>
           <label htmlFor="school">
             School:
@@ -68,6 +81,7 @@ class EduExperience extends Component {
             <input type="date" className="date" value={date} onChange={this.handleChange} />
           </label>
         </div>
+        <button type="button" onClick={this.delete} className={num}>X</button>
       </div>
     );
   }
@@ -75,10 +89,12 @@ class EduExperience extends Component {
 
 EduExperience.propTypes = {
   submitted: PropTypes.bool,
+  num: PropTypes.number,
 };
 
 EduExperience.defaultProps = {
   submitted: false,
+  num: 0,
 };
 
 export default EduExperience;
